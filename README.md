@@ -11,7 +11,7 @@ The languages on the wheel are:
 - Elixir
 - Haskell
 - Java
-- Kotlin
+- Zig
 - Python
 - C#
 - C++
