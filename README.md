@@ -17,6 +17,6 @@ The languages on the wheel are:
 - C++
 - C
 
-## Day 1 ⭐
+## Day 1 ⭐⭐
 
 Day 1's language is Elixir, and [can be found here](elixir/day1)
