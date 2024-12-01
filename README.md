@@ -20,3 +20,7 @@ The languages on the wheel are:
 ## Day 1 ⭐⭐
 
 Day 1's language is Elixir, and [can be found here](elixir/day1)
+
+## Day 2
+
+Day 2's language is Zig
