@@ -1,21 +1,20 @@
 defmodule Day1 do
   def start(_type, _args) do
-    puzzle_one()
-    puzzle_two()
+    {lefts, rights} = read_file("../../data/day1/data.txt")
+    puzzle_one(lefts, rights)
+    puzzle_two(lefts, rights)
 
     Supervisor.start_link([], strategy: :one_for_one)
   end
 
-  def puzzle_one() do
-    {lefts, rights} = read_file("../../data/day1/data.txt")
+  def puzzle_one(lefts, rights) do
     sortedLefts = Enum.sort(lefts)
     sortedRights = Enum.sort(rights)
     combined = Enum.zip(sortedLefts, sortedRights)
     IO.inspect(total_distance(combined), label: "Total distance")
   end
 
-  def puzzle_two() do
-    {lefts, rights} = read_file("../../data/day1/data.txt")
+  def puzzle_two(lefts, rights) do
     IO.inspect(calc_similarity_score(lefts, rights), label: "Similarity score")
   end
 
