@@ -21,6 +21,6 @@ The languages on the wheel are:
 
 Day 1's language is Elixir, and [can be found here](elixir/day1)
 
-## Day 2
+## Day 2 ⭐⭐
 
-Day 2's language is Zig
+Day 2's language is Zig. Or at least, it should have been. I was able to solve the problem in tests, but could not get the data file to load. I'll come back to this at a later date. In the end, to solve the problem [I wrote it in typescript](typescript/day2/).
