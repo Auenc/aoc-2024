@@ -19,12 +19,34 @@ public class Day3 {
 
     }
 
-    public ArrayList<String> getMulsFromText(String text) {
+    public ArrayList<String> getEntriesFromText(String text) {
         ArrayList<String> muls = new ArrayList<String>();
-        Matcher m = Pattern.compile("mul\\(\\d+,\\d+\\)").matcher(text);
+        Matcher m = Pattern.compile("mul\\(\\d+,\\d+\\)|do\\(\\)|don\\'t\\(\\)").matcher(text);
 
         while (m.find()) {
             muls.add(m.group());
+        }
+
+        return muls;
+    }
+
+    public ArrayList<String> getActualMuls(ArrayList<String> entries) {
+        ArrayList<String> muls = new ArrayList<String>();
+
+        boolean doing = true;
+
+        for (String entry : entries) {
+            if (entry.equals("do()")) {
+                doing = true;
+                continue;
+            }
+            if (entry.equals("don't()")) {
+                doing = false;
+                continue;
+            }
+            if (doing) {
+                muls.add(entry);
+            }
         }
 
         return muls;
@@ -48,7 +70,8 @@ public class Day3 {
     }
 
     public int getMulsResult(String text) {
-        ArrayList<String> muls = getMulsFromText(text);
+        ArrayList<String> entries = getEntriesFromText(text);
+        ArrayList<String> muls = getActualMuls(entries);
         int result = 0;
 
         for (String mul : muls) {

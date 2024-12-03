@@ -2,30 +2,54 @@ import java.util.ArrayList;
 
 public class Tests {
     public static void main(String[] args) {
-        testGetMuls();
+        testGetEntries();
         testGetMulValues();
         testGetMulsResult();
+        testGetActualMuls();
     }
 
-    public static void testGetMuls() {
+    public static void testGetEntries() {
         Day3 day3 = new Day3();
         ArrayList<String> muls = day3
-                .getMulsFromText("xmul(2,4)%&mul[3,7]!@^do_not_mul(5,5)+mul(32,64]then(mul(11,8)mul(8,5))");
+                .getEntriesFromText("xmul(2,4)&mul[3,7]!^don't()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))");
 
-        if (muls.size() != 4) {
-            throw new AssertionError("Expected 4 muls, got " + muls.size());
+        if (muls.size() != 6) {
+            throw new AssertionError("Expected 6 entries, got " + muls.size());
         }
         if (!muls.get(0).equals("mul(2,4)")) {
             throw new AssertionError("Expected mul(2,4), got " + muls.get(0));
         }
-        if (!muls.get(1).equals("mul(5,5)")) {
+        if (!muls.get(1).equals("don't()")) {
+            throw new AssertionError("Expected don't(), got " + muls.get(1));
+        }
+        if (!muls.get(2).equals("mul(5,5)")) {
             throw new AssertionError("Expected mul(5,5), got " + muls.get(1));
         }
-        if (!muls.get(2).equals("mul(11,8)")) {
+        if (!muls.get(3).equals("mul(11,8)")) {
             throw new AssertionError("Expected mul(11,8), got " + muls.get(2));
         }
-        if (!muls.get(3).equals("mul(8,5)")) {
+        if (!muls.get(4).equals("do()")) {
+            throw new AssertionError("Expected do(), got " + muls.get(3));
+        }
+        if (!muls.get(5).equals("mul(8,5)")) {
             throw new AssertionError("Expected mul(8,5), got " + muls.get(3));
+        }
+    }
+
+    public static void testGetActualMuls() {
+        Day3 day3 = new Day3();
+        ArrayList<String> muls = day3
+                .getEntriesFromText("xmul(2,4)&mul[3,7]!^don't()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))");
+        ArrayList<String> actualMuls = day3.getActualMuls(muls);
+
+        if (actualMuls.size() != 2) {
+            throw new AssertionError("Expected 2 actual muls, got " + actualMuls.size());
+        }
+        if (!actualMuls.get(0).equals("mul(2,4)")) {
+            throw new AssertionError("Expected mul(2,4), got " + actualMuls.get(0));
+        }
+        if (!actualMuls.get(1).equals("mul(8,5)")) {
+            throw new AssertionError("Expected mul(8,5), got " + actualMuls.get(3));
         }
     }
 
