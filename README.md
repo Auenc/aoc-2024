@@ -28,3 +28,7 @@ Day 2's language is Zig. Or at least, it should have been. I was able to solve t
 ## Day 3 ⭐⭐
 
 Day 3's language is Java, and [can be found here](java/day3/)
+
+## Day 4
+
+Day 4's language is Ruby
