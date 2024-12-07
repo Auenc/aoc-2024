@@ -13,11 +13,9 @@ func main() {
 		panic(err)
 	}
 
-	var correctCalibrations = make([]Calibration, 0)
 	var total = 0
 	for _, calibration := range calibrations {
 		if calibration.Possible() {
-			correctCalibrations = append(correctCalibrations, calibration)
 			total += calibration.TestValue
 		}
 	}
