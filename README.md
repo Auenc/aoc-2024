@@ -31,4 +31,4 @@ Day 3's language is Java, and [can be found here](java/day3/)
 
 ## Day 4
 
-Day 4's language is Ruby
+Day 4's language is ~~Ruby~~ Or rather it should have been, if I had time to learn ruby during the week. Instead, I'm going to do this in Typescript
