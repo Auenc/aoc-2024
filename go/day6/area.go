@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 type area struct {
 	input string
 	cells [][]string
@@ -93,28 +91,6 @@ func (a area) countWalked() int {
 			if cell == "X" {
 				count++
 			}
-		}
-	}
-	return count
-}
-
-func (a *area) countPotentialObstacles() int {
-	count := 0
-	gY, gX, _ := a.getGuard()
-	for y, row := range a.cells {
-		for x := range row {
-			if gY == y && gX == x {
-				continue
-			}
-			if a.cells[y][x] == "#" {
-				continue
-			}
-			a.cells[y][x] = "O"
-			if a.complete() {
-				count++
-				fmt.Println("Counted ", count)
-			}
-			a.reset()
 		}
 	}
 	return count

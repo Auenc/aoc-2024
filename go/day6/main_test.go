@@ -69,5 +69,5 @@ func TestCountWalked(t *testing.T) {
 
 func TestCountPotentialObstacles(t *testing.T) {
 	area, _ := loadArea("../../data/day6/test.txt")
-	assert.Equal(t, 6, area.countPotentialObstacles())
+	assert.Equal(t, 6, countPotentialObstacles(area.input))
 }
